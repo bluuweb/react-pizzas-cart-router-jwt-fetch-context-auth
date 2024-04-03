@@ -117,3 +117,13 @@ Finalmente el componente `Footer` debe contener:
 Este componente debe ser llamado en `App.jsx`.
 
 Puedes agregar la información que consideres necesaria.
+
+## Capturas
+
+Te dejamos el diseño final de la aplicación para que puedas comparar con tu resultado final:
+
+![Capturas](https://i.imgur.com/1Q8Q6Zz.png)
+
+## Rúbrica
+
+Faltaría agregar los puntos y crear la tabla de rúbrica.
