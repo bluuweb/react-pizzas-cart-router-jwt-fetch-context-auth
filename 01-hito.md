@@ -71,6 +71,10 @@ Además debe estar formateado con el separador de miles, ej: `25.000`.
 **Tip:** Puedes utilizar la función `toLocaleString` para esto.
 **Tip:** Puedes llevar esto a una función en la carpeta `utils` o `helpers` para reutilizarlo en otros componentes.
 
+### Botones Home y Total
+
+Los botones de `Home` y `Total` no dependen del token, por lo que siempre deben ser mostrados, independiente si el token es `true` o `false`.
+
 ## CardPizza.jsx
 
 Este componente debe contener la información de una pizza, como el nombre, precio, imagen, etc.
