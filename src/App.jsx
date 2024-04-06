@@ -1,7 +1,8 @@
+import Cart from "./components/Cart";
 import Footer from "./components/Footer";
-import LoginPage from "./components/Login";
-// import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+// import Home from "./components/Home";
+// import LoginPage from "./components/Login";
 // import RegisterPage from "./components/Register";
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
       <Navbar />
       {/* <Home /> */}
       {/* <RegisterPage /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <Cart />
       <Footer />
     </div>
   );
