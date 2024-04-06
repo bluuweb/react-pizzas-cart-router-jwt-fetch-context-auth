@@ -85,3 +85,13 @@ En el componente `<Cart />`:
 **Tips:** Puedes utilizar el hook `useState` para manejar el array de pizzas en el carrito, ejemplo: `const [cart, setCart] = useState(pizzaCart);`
 
 En el componente `Navbar` también tienes un botón de carrrito, este por ahora permanece estático, pero en hitos futuros lo utilizaremos para mostrar el carrito de compras.
+
+# Capturas
+
+Te dejamos el diseño final de la aplicación para que puedas comparar con tu resultado final:
+
+![Capturas](https://i.imgur.com/1Q8Q6Zz.png)
+
+## Rúbrica
+
+Faltaría agregar los puntos y crear la tabla de rúbrica.
