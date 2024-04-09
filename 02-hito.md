@@ -97,12 +97,12 @@ Te dejamos el diseño final de la aplicación para que puedas comparar con tu re
 
 ## Rúbrica
 
-- Componente `Register` con los campos email, password y confirmar password. (6 puntos)
+- Componente `Register`
   - Agrega los campos obligatorios utilizando useState. (3 puntos)
   - Valida que todos los campos sean obligatorios. (1 punto)
   - Valida que la contraseña tenga al menos 6 caracteres. (1 punto)
   - Valida que la contraseña y la confirmación de la contraseña sean iguales. (1 punto)
-- Componente `Login` con los campos email y password. (4 puntos)
+- Componente `Login`
   - Agrega los campos obligatorios utilizando useState. (2 puntos)
   - Valida que todos los campos sean obligatorios. (1 punto)
   - Valida que la contraseña tenga al menos 6 caracteres. (1 punto)
