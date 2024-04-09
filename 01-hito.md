@@ -126,14 +126,13 @@ Te dejamos el diseño final de la aplicación para que puedas comparar con tu re
 
 ## Rúbrica
 
-- Se crea el componente `Navbar` (4 puntos)
+- `Navbar`
   - Logra mostrar los botones `Profile`, `Logout`, `Login`, `Register` dependiendo del token. (2 punto)
   - Logra mostrar el total de la compra formateado. (1 punto)
   - Logra mostrar el botón `Home` y `Total` siempre, independiente del token. (1 punto)
-- Se crea el componente `Home` (2 puntos)
+- `Home`
   - Logra crear el componente `Home` y llamar a `Header` y `CardPizza`. (1 punto)
   - Pasa los props a `CardPizza`. (1 punto)
-- Se crea el componente `CardPizza` (2 puntos)
-  - Logra mostrar la información de la pizza. (2 punto)
+- Se crea el componente `CardPizza` y logra mostrar la información de la pizza. (2 punto)
 - Se crea el componente `Header` (1 punto)
 - Se crea el componente `Footer` (1 punto)
