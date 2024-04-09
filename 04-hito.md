@@ -116,4 +116,10 @@ Te dejamos el diseño final de la aplicación para que puedas comparar con tu re
 
 ## Rúbrica
 
-Faltaría agregar los puntos y crear la tabla de rúbrica.
+- **Home.jsx**:
+  - Logra consumir la API de pizzas y renderizar las tarjetas de pizza. (2 puntos)
+  - Utiliza el hook `useEffect` para consumir la API. (2 punto)
+- **Pizza.jsx**:
+  - Logra consumir la API de pizzas y renderizar la información de la pizza. (2 puntos)
+  - Utiliza el hook `useEffect` para consumir la API. (2 punto)
+  - Muestra la información de la pizza: nombre, precio, ingredientes, imagen y descripción. (2 puntos)
