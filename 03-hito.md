@@ -94,4 +94,12 @@ Te dejamos el diseño final de la aplicación para que puedas comparar con tu re
 
 ## Rúbrica
 
-Faltaría agregar los puntos y crear la tabla de rúbrica.
+- ` <Home />`
+  - Recorre el array de `pizzas` y renderiza un componente `<CardPizza />`. (2 punto)
+- `CardPizza`
+  - Muestra la información de cada pizza utilizando props. (2 punto)
+  - Itera por la lista de ingredientes de cada pizza y renderiza un `<li>` por cada ingrediente. (2 punto)
+- `<Cart />`
+  - Recorre el array de `pizzaCart` y muestra la información de cada pizza en el carrito. (1 punto)
+  - Agrega botones para aumentar y disminuir la cantidad de pizzas en el carrito. (1 punto)
+  - Calcula el total de la compra y muéstralo en el carrito. (1 punto)
