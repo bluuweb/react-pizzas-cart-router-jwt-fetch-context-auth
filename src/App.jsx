@@ -7,12 +7,14 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      {/* <Home /> */}
-      {/* <RegisterPage /> */}
-      {/* <LoginPage /> */}
-      <Cart />
+      <div className="flex-grow-1">
+        {/* <Home /> */}
+        {/* <RegisterPage /> */}
+        {/* <LoginPage /> */}
+        <Cart />
+      </div>
       <Footer />
     </div>
   );
