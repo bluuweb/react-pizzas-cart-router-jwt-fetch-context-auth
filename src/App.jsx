@@ -8,13 +8,15 @@ import Pizza from "./components/Pizza";
 
 const App = () => {
   return (
-    <div>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      {/* <Home /> */}
-      {/* <RegisterPage /> */}
-      {/* <LoginPage /> */}
-      {/* <Cart /> */}
-      <Pizza />
+      <div className="flex-grow-1">
+        {/* <Home /> */}
+        {/* <RegisterPage /> */}
+        {/* <LoginPage /> */}
+        {/* <Cart /> */}
+        <Pizza />
+      </div>
       <Footer />
     </div>
   );
