@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { formatNumber } from "../helpers/formatNumber";
 
 import PropTypes from "prop-types";
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ name, price, ingredients, img, id }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div className="col">
       <div className="card h-100">
@@ -35,7 +39,12 @@ const CardPizza = ({ name, price, ingredients, img }) => {
             Ver Más &#128064;
           </button>
 
-          <button className="btn btn-sm btn-dark">Añadir &#128722;</button>
+          <button
+            className="btn btn-sm btn-dark"
+            onClick={() => addToCart({ id, price, name, img })}
+          >
+            Añadir &#128722;
+          </button>
         </div>
       </div>
     </div>
@@ -48,4 +57,5 @@ CardPizza.propTypes = {
   price: PropTypes.number.isRequired,
   ingredients: PropTypes.array.isRequired,
   img: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };

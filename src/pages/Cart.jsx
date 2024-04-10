@@ -1,33 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { formatNumber } from "../helpers/formatNumber";
-import { pizzaCart } from "../pizzas";
 
 const Cart = () => {
-  const [cart, setCart] = useState(pizzaCart);
-
-  const increment = (i) => {
-    const newCart = [...cart];
-    newCart[i].count++;
-    setCart(newCart);
-  };
-
-  const decrement = (i) => {
-    const newCart = [...cart];
-    newCart[i].count--;
-    if (newCart[i].count === 0) {
-      newCart.splice(i, 1);
-    }
-    setCart(newCart);
-  };
-
-  const total = cart.reduce((acc, el) => acc + el.price * el.count, 0);
+  const { carrito, increment, decrement, total } = useContext(CartContext);
 
   return (
     <main className="container">
       <div className="p-5">
         <h5>Detalles del pedido:</h5>
         <div>
-          {cart.map((producto, i) => (
+          {carrito.map((producto, i) => (
             <div
               key={i}
               className="d-flex justify-content-between py-2"
@@ -64,7 +47,7 @@ const Cart = () => {
           <h2 className="my-4">Total: ${formatNumber(total)}</h2>
           <button
             className="btn btn-dark"
-            disabled={!cart.length}
+            disabled={!carrito.length}
             // onClick={processPayment}
           >
             {/* {!token ? "Inicia sesión para continuar" : "Pagar"} */}
