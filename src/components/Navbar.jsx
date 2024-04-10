@@ -1,42 +1,64 @@
 import { formatNumber } from "../helpers/formatNumber";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const total = 25000;
   const token = false;
 
   return (
-    <nav className="navbar navbar-dark bg-dark sticky-top">
-      <div className="container-fluid justify-content-start">
+    <div className="navbar navbar-dark bg-dark sticky-top">
+      <div className="container justify-content-start">
         <span className="navbar-brand">Pizzería Mamma Mia!</span>
-        <div>
-          <button className="btn btn-sm btn-outline-light me-2">🍕 Home</button>
+        <div className="">
+          <Link
+            to="/"
+            className="btn btn-sm btn-outline-light me-2"
+          >
+            🍕 Home
+          </Link>
           {token ? (
             <>
-              <button className="btn btn-sm btn-outline-light me-2">
+              <Link
+                to="/profile"
+                className="btn btn-sm btn-outline-light me-2"
+              >
                 🔓 Profile
-              </button>
-              <button className="btn btn-sm btn-outline-danger me-2">
+              </Link>
+              <button
+                className="btn btn-sm btn-outline-danger me-2"
+                // onClick={logout}
+              >
                 🔒 Logout
               </button>
             </>
           ) : (
             <>
-              <button className="btn btn-sm btn-outline-light me-2">
+              <Link
+                to="/login"
+                className="btn btn-sm btn-outline-light me-2"
+              >
                 🔐 Login
-              </button>
-              <button className="btn btn-sm btn-outline-light me-2">
+              </Link>
+              <Link
+                to="/register"
+                className="btn btn-sm btn-outline-light me-2"
+              >
                 🔐 Register
-              </button>
+              </Link>
             </>
           )}
         </div>
         <div className="ms-auto">
-          <button className="btn btn-sm btn-outline-info me-2 ms-auto">
+          <Link
+            to="/cart"
+            className="btn btn-sm btn-outline-info me-2 ms-auto"
+          >
             🛒 Total: ${formatNumber(total)}
-          </button>
+          </Link>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 export default Navbar;

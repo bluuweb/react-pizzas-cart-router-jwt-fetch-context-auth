@@ -8,11 +8,10 @@ import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import PizzaPage from "./pages/Pizza";
+import ProfilePage from "./pages/Profile";
 import RegisterPage from "./pages/Register";
 
 const App = () => {
-  // const { token } = useContext(UserContext);
-
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
@@ -31,6 +30,10 @@ const App = () => {
           <Route
             path="/cart"
             element={<CartPage />}
+          />
+          <Route
+            path="/profile"
+            element={<ProfilePage />}
           />
           <Route
             path="/login"
