@@ -8,13 +8,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 import CartProvider from "./context/CartContext.jsx";
+import UserProvider from "./context/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );

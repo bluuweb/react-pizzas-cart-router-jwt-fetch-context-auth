@@ -1,8 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
 import CartPage from "./pages/Cart";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
@@ -12,6 +14,8 @@ import ProfilePage from "./pages/Profile";
 import RegisterPage from "./pages/Register";
 
 const App = () => {
+  const { token } = useContext(UserContext);
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
@@ -21,7 +25,7 @@ const App = () => {
             path="/"
             element={<HomePage />}
           />
-          <Route path="/pizzas">
+          <Route path="/pizza">
             <Route
               path=":id"
               element={<PizzaPage />}
@@ -33,15 +37,15 @@ const App = () => {
           />
           <Route
             path="/profile"
-            element={<ProfilePage />}
+            element={token ? <ProfilePage /> : <Navigate to="/login" />}
           />
           <Route
             path="/login"
-            element={<LoginPage />}
+            element={token ? <Navigate to="/" /> : <LoginPage />}
           />
           <Route
             path="/register"
-            element={<RegisterPage />}
+            element={token ? <Navigate to="/" /> : <RegisterPage />}
           />
           <Route
             path="*"

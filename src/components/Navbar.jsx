@@ -3,11 +3,12 @@ import { formatNumber } from "../helpers/formatNumber";
 
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const { total } = useContext(CartContext);
 
-  const token = false;
+  const { token, logout } = useContext(UserContext);
 
   return (
     <div className="navbar navbar-dark bg-dark sticky-top">
@@ -30,7 +31,7 @@ const Navbar = () => {
               </Link>
               <button
                 className="btn btn-sm btn-outline-danger me-2"
-                // onClick={logout}
+                onClick={logout}
               >
                 🔒 Logout
               </button>

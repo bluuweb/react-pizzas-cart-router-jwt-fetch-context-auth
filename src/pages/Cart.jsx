@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 import { formatNumber } from "../helpers/formatNumber";
 
 const Cart = () => {
   const { carrito, increment, decrement, total } = useContext(CartContext);
+
+  const { token } = useContext(UserContext);
 
   return (
     <main className="container">
@@ -47,11 +50,10 @@ const Cart = () => {
           <h2 className="my-4">Total: ${formatNumber(total)}</h2>
           <button
             className="btn btn-dark"
-            disabled={!carrito.length}
+            disabled={!carrito.length || !token}
             // onClick={processPayment}
           >
-            {/* {!token ? "Inicia sesión para continuar" : "Pagar"} */}
-            Pagar
+            {!token ? "Inicia sesión para continuar" : "Pagar"}
           </button>
         </div>
       </div>

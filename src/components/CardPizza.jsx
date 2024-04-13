@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { formatNumber } from "../helpers/formatNumber";
 
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CardPizza = ({ name, price, ingredients, img, id }) => {
   const { addToCart } = useContext(CartContext);
@@ -35,9 +36,12 @@ const CardPizza = ({ name, price, ingredients, img, id }) => {
         </h3>
 
         <div className="d-flex justify-content-around mb-4">
-          <button className="btn btn-sm btn-outline-dark">
+          <Link
+            to={`/pizza/${id}`}
+            className="btn btn-sm btn-outline-dark"
+          >
             Ver Más &#128064;
-          </button>
+          </Link>
 
           <button
             className="btn btn-sm btn-dark"

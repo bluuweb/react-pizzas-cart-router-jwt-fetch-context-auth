@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { formatNumber } from "../helpers/formatNumber";
+3;
 
 const Pizza = () => {
   // http://localhost:5000/api/pizzas/p001
   const [pizza, setPizza] = useState({});
-
-  const getPizza = async () => {
-    const response = await fetch("http://localhost:5000/api/pizzas/p001");
-    const data = await response.json();
-    console.log(data);
-    setPizza(data);
-  };
+  const { id } = useParams();
 
   useEffect(() => {
+    const getPizza = async () => {
+      const response = await fetch(`http://localhost:5000/api/pizzas/${id}`);
+      const data = await response.json();
+      console.log(data);
+      setPizza(data);
+    };
+
     getPizza();
-  }, []);
+  }, [id]);
+
+  if (!pizza) return <p className="text-center my-5">Cargando...</p>;
 
   return (
     <main
