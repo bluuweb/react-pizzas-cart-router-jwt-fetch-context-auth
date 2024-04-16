@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 const RegisterPage = () => {
+  const { registerWithEmailAndPassword } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -23,7 +26,8 @@ const RegisterPage = () => {
       return;
     }
 
-    alert("Authentication successful!");
+    const response = await registerWithEmailAndPassword(email, password);
+    alert(response?.error || "User created successfully!");
   };
 
   return (

@@ -3,10 +3,28 @@ import { CartContext } from "../context/CartContext";
 import { UserContext } from "../context/UserContext";
 import { formatNumber } from "../helpers/formatNumber";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Cart = () => {
   const { carrito, increment, decrement, total } = useContext(CartContext);
 
   const { token } = useContext(UserContext);
+
+  const processPayment = async () => {
+    const response = await fetch(`${API_BASE_URL}/checkouts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        cart: carrito,
+      }),
+    });
+
+    const data = await response.json();
+    alert(JSON.stringify(data));
+  };
 
   return (
     <main className="container">
@@ -51,7 +69,7 @@ const Cart = () => {
           <button
             className="btn btn-dark"
             disabled={!carrito.length || !token}
-            // onClick={processPayment}
+            onClick={processPayment}
           >
             {!token ? "Inicia sesión para continuar" : "Pagar"}
           </button>

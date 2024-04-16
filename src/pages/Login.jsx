@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 const LoginPage = () => {
+  const { loginWithEmailAndPassword } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +19,8 @@ const LoginPage = () => {
       return;
     }
 
-    alert("Authentication successful!");
+    const response = await loginWithEmailAndPassword(email, password);
+    alert(response?.error || "Authentication successful!");
   };
 
   return (
