@@ -163,3 +163,92 @@ export default Profile;
 Cómo puedes ver en el código anterior, estamos enviando el token JWT en el encabezado de la solicitud HTTP. De esta manera, el servidor puede verificar la autenticidad del token y autorizar al usuario a acceder a la ruta `/api/auth/me`.
 
 Así es como puedes implementar la autenticación y autorización con JWT en una aplicación de React. Puedes personalizarlo y adaptarlo a tus necesidades. Recuerda que en secciones anteriores se explicó como hacer rutas protegidas en React.
+
+## Extra Custom Hooks
+
+Cómo contenido extra vamos a conocer los Custom Hooks en React.
+
+Los Custom Hooks son una característica de React que nos permite extraer lógica de componentes en funciones reutilizables.
+
+Un ejemplo de Custom Hook sería el siguiente:
+
+```jsx
+import { useState } from "react";
+
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return {
+    value,
+    onChange: handleChange,
+  };
+};
+
+export default useInput;
+```
+
+En este ejemplo, hemos creado un Custom Hook llamado `useInput` que nos permite manejar el estado de un campo de entrada en un formulario.
+
+El Custom Hook `useInput` recibe un valor inicial y devuelve un objeto con dos propiedades: `value` y `onChange`.
+
+`value` es el valor actual del campo de entrada y `onChange` es una función que se ejecuta cuando el campo de entrada cambia.
+
+Para utilizar este Custom Hook en un componente, simplemente importamos la función y la llamamos:
+
+```jsx
+import React from "react";
+
+import useInput from "./useInput";
+
+const Form = () => {
+  const email = useInput("");
+  const password = useInput("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email.value, password.value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        placeholder="Email"
+        {...email}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        {...password}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+```
+
+De esta manera, podemos reutilizar la lógica de manejo de estado en múltiples componentes sin tener que repetir el código.
+
+En este caso llamamos a `useInput` dos veces para manejar el estado de dos campos de entrada en un formulario.
+
+Luego utilizamos las propiedades `value` y `onChange` en los campos de entrada.
+
+`{...email}` es una forma abreviada de escribir `value={email.value} onChange={email.onChange}`.
+
+`{...password}` es una forma abreviada de escribir `value={password.value} onChange={password.onChange}`.
+
+Esto se conoce como "destructuring" en JavaScript y nos permite pasar múltiples propiedades a un componente de forma más concisa.
+
+Los Custom Hooks son una herramienta poderosa que nos permite escribir código más limpio y modular en nuestras aplicaciones de React.
+
+## Conclusión
+
+En esta guía hemos aprendido cómo implementar la autenticación y autorización con JWT en una aplicación de React. Hemos visto cómo hacer login y obtener el perfil del usuario autenticado utilizando tokens JWT.
+
+Además hemos conocido los Custom Hooks en React, una característica que nos permite extraer lógica de componentes en funciones reutilizables.
+
+Espero que esta guía te haya sido útil y te haya ayudado a comprender mejor cómo funciona la autenticación y autorización en una aplicación de React.
