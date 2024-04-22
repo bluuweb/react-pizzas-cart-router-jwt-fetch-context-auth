@@ -34,7 +34,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 ## Implementación de JWT en una aplicación de React
 
-Vamos a generar el siguiente componente `Login` que se encargará de hacer login en nuestra aplicación.
+En el material de apoyo se encuentra el proyecto base con la configuración previa para comenzar a trabajar.
+
+Vamos a generar la siguiente página `Login` que se encargará de hacer login en nuestra aplicación.
 
 Antes de comenzar, veririfica que tienes levantado el servidor que estás utilizando en el desarrollo de tus hitos.
 
@@ -43,7 +45,7 @@ El endpoint `/api/auth/login` recibe un email y una contraseña y devuelve un to
 Ejemplo:
 
 ```jsx
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -62,9 +64,9 @@ const Login = () => {
       }),
     });
 
-    const response = await response.json();
-    alert(response?.error || "Authentication successful!");
-    localStorage.setItem("token", response.token);
+    const data = await response.json();
+    alert(data?.error || "Authentication successful!");
+    localStorage.setItem("token", data.token);
   };
 
   return (
@@ -114,10 +116,12 @@ En este ejemplo estamos persistiendo el token JWT en el `localStorage`, así pod
 
 Una vez que hemos obtenido el token JWT, podemos utilizarlo para acceder a rutas protegidas en nuestra aplicación.
 
-Vamos a crear un componente `Profile` que se encargará de mostrar el perfil del usuario autenticado.
+Vamos a crear una página `Profile` que se encargará de mostrar el perfil del usuario autenticado.
+
+src\pages\Profile.jsx
 
 ```jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -168,9 +172,13 @@ Así es como puedes implementar la autenticación y autorización con JWT en una
 
 Cómo contenido extra vamos a conocer los Custom Hooks en React.
 
+En el proyecto de apoyo se encuentra un Custom Hook llamado `useInput` que nos permite manejar el estado de un campo de entrada en un formulario, además de un ejemplo de cómo utilizarlo en `RegisterWithCustomHooks.jsx`.
+
 Los Custom Hooks son una característica de React que nos permite extraer lógica de componentes en funciones reutilizables.
 
 Un ejemplo de Custom Hook sería el siguiente:
+
+src\hooks\useInput.jsx
 
 ```jsx
 import { useState } from "react";
@@ -200,11 +208,9 @@ El Custom Hook `useInput` recibe un valor inicial y devuelve un objeto con dos p
 Para utilizar este Custom Hook en un componente, simplemente importamos la función y la llamamos:
 
 ```jsx
-import React from "react";
+import useInput from "../hooks/useInput";
 
-import useInput from "./useInput";
-
-const Form = () => {
+const RegisterWithCustomHooks = () => {
   const email = useInput("");
   const password = useInput("");
 
@@ -229,6 +235,8 @@ const Form = () => {
     </form>
   );
 };
+
+export default RegisterWithCustomHooks;
 ```
 
 De esta manera, podemos reutilizar la lógica de manejo de estado en múltiples componentes sin tener que repetir el código.

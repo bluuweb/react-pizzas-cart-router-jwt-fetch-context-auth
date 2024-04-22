@@ -1,5 +1,17 @@
 # Hito 7 - React router II
 
+## Introducción
+
+En este hito seguiremos trabajando con React Router, implementaremos rutas protegidas y vamos a utilizar el hook `useParams` para obtener el **id** de la pizza en la página de `Pizza.jsx`.
+
+Para este hito vamos a utilizar el siguiente endpoint de la API de pizzas:
+
+```sh
+GET /api/pizzas/:id
+```
+
+## Objetivos
+
 1. Implementa useParams para obtener el **id** de la pizza en la página de `Pizza.jsx`. Con el **id** obtenido, realiza una petición a la API para obtener la información de la pizza y mostrarla en la página. (2 puntos)
 
 **Tips:** Puedes además implementar `Link` en el componente `CardPizza.jsx` para redirigir a la página de `Pizza.jsx` con el **id** de la pizza.
